@@ -1,0 +1,39 @@
+services:
+  app:
+    container_name: waizly-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    env_file:
+      - .env
+    restart: on-failure
+    volumes:
+      - api:/usr/src/app/
+    depends_on:
+      - mysqldb
+    networks:
+      - waizly
+
+  mysqldb:
+    image: mysql:latest
+    ports:
+      - "${DB_PORT}:3306"
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+    networks:
+      - waizly
+
+volumes:
+  api:
+  mysql-data:
+
+networks:
+  waizly:
+    driver: bridge

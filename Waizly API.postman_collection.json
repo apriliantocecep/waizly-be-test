@@ -1,0 +1,3459 @@
+{
+	"info": {
+		"_postman_id": "a7468b9b-a1fe-42f5-8239-0e9504ece44a",
+		"name": "Waizly API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2801839"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"cecepaprilianto@gmail.com\",\n    \"password\": \"makanterus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cecep@gmail.com\",\n    \"password\": \"sdfasdfa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:49:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"email\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"email not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:49:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"email\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Email is required\"\n        },\n        {\n            \"field\": \"password\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Password is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cecep@gmail.com\",\n    \"password\": \"makanterus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:51:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "329"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Cecep\",\n            \"email\": \"cecep@gmail.com\",\n            \"created_at\": \"2024-07-24T16:50:55+07:00\",\n            \"updated_at\": \"2024-07-24T16:50:55+07:00\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjZWNlcEBnbWFpbC5jb20iLCJpc3MiOiJwdC1lc2IiLCJleHAiOjE3MjE5MDEwNjZ9.fBZGiYE0PWah6mn4nVkCD_t3rB2ztCtkmXSRueVOeH0\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Cecep\",\n    \"email\": \"cecepaprilianto@gmail.com\",\n    \"password\": \"makanterus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:50:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"name\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Name is required\"\n        },\n        {\n            \"field\": \"email\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Email is required\"\n        },\n        {\n            \"field\": \"password\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Password is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Cecep\",\n    \"email\": \"cecep@gmail.com\",\n    \"password\": \"makanterus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:50:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Cecep\",\n            \"email\": \"cecep@gmail.com\",\n            \"created_at\": \"2024-07-24T16:50:55.373+07:00\",\n            \"updated_at\": \"2024-07-24T16:50:55.373+07:00\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjZWNlcEBnbWFpbC5jb20iLCJpc3MiOiJwdC1lc2IiLCJleHAiOjE3MjE5MDEwNTV9.geCoW3ChjrpypVGmM4SEDp-q0szxTj9vqmgsBqK-nZ0\"\n    }\n}"
+						},
+						{
+							"name": "409",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Cecep\",\n    \"email\": \"cecep@gmail.com\",\n    \"password\": \"makanterus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 09:51:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"email\",\n            \"error_code\": \"EMAIL_EXISTS\",\n            \"param\": \"\",\n            \"message\": \"email already exists\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "tax",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"PPN\",\n    \"rate\": 10.11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/tax",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tax"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"rate\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tax",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 13:34:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"name\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Name is required\"\n        },\n        {\n            \"field\": \"rate\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Rate is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 13:37:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"PPN\",\n    \"rate\": 10.11\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tax",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 23:39:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"PPN\",\n        \"rate\": 10.11,\n        \"created_at\": \"2024-07-25T06:39:16.429+07:00\",\n        \"updated_at\": \"2024-07-25T06:39:16.429+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tax",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tax"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:18:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "355"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"PPN\",\n            \"rate\": 10,\n            \"created_at\": \"2024-07-24T20:41:09+07:00\",\n            \"updated_at\": \"2024-07-24T20:41:09+07:00\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"PPN\",\n            \"rate\": 10,\n            \"created_at\": \"2024-07-24T20:43:24+07:00\",\n            \"updated_at\": \"2024-07-24T20:43:24+07:00\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"PPN\",\n            \"rate\": 10.11,\n            \"created_at\": \"2024-07-24T20:43:32+07:00\",\n            \"updated_at\": \"2024-07-24T20:43:32+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tax/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tax",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:31:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"tax not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:31:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"PPN\",\n        \"rate\": 10,\n        \"created_at\": \"2024-07-24T20:41:09+07:00\",\n        \"updated_at\": \"2024-07-24T20:41:09+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"PPN 2024\",\n    \"rate\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/tax/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tax",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"PPN 2024\",\n    \"rate\": 11\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:39:57 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"tax not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"PPN 2024\",\n    \"rate\": 11\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:40:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"PPN 2024\",\n        \"rate\": 11,\n        \"created_at\": \"2024-07-24T20:41:09+07:00\",\n        \"updated_at\": \"2024-07-24T21:40:12.829+07:00\"\n    }\n}"
+						},
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"PPN 2024\",\n    \"rate\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:40:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"rate\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The Rate is required\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tax/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tax",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:43:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"tax not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tax/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tax",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jul 2024 14:43:44 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "currency",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 19000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/currency",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 19000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/currency",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:37:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"code\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The code is required\"\n        },\n        {\n            \"field\": \"name\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The name is required\"\n        },\n        {\n            \"field\": \"exchange_rate\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The exchange_rate is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 19000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/currency",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:38:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"currency\": {\n            \"id\": 2,\n            \"code\": \"IDR\",\n            \"name\": \"Indonesian Rupiah\",\n            \"exchange_rate\": 19000,\n            \"created_at\": \"2024-07-25T10:38:26.415+07:00\",\n            \"updated_at\": \"2024-07-25T10:38:26.415+07:00\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/currency",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/currency",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:38:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "302"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"code\": \"dfa\",\n            \"name\": \"PPN\",\n            \"exchange_rate\": 19000,\n            \"created_at\": \"2024-07-25T07:45:43+07:00\",\n            \"updated_at\": \"2024-07-25T07:45:43+07:00\"\n        },\n        {\n            \"id\": 2,\n            \"code\": \"IDR\",\n            \"name\": \"Indonesian Rupiah\",\n            \"exchange_rate\": 19000,\n            \"created_at\": \"2024-07-25T10:38:26+07:00\",\n            \"updated_at\": \"2024-07-25T10:38:26+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/currency/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:39:01 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"currency not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:39:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"code\": \"IDR\",\n        \"name\": \"Indonesian Rupiah\",\n        \"exchange_rate\": 19000,\n        \"created_at\": \"2024-07-25T10:38:26+07:00\",\n        \"updated_at\": \"2024-07-25T10:38:26+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 15000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/currency/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 19000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:40:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"name\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The name is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 15000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:40:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"currency not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"code\": \"IDR\",\n    \"exchange_rate\": 15000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:40:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"code\": \"IDR\",\n        \"name\": \"Indonesian Rupiah\",\n        \"exchange_rate\": 15000,\n        \"created_at\": \"2024-07-25T07:45:43+07:00\",\n        \"updated_at\": \"2024-07-25T10:40:31.845+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/currency/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"currency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:41:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"currency not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/currency/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"currency",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 03:41:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Meetings\",\n    \"type\": \"Service\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/item",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Indonesian Rupiah\",\n    \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/item",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:48:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"type\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The type is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Design\",\n    \"type\": \"Service\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/item",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:49:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Design\",\n        \"type\": \"Service\",\n        \"created_at\": \"2024-07-25T11:49:55.234+07:00\",\n        \"updated_at\": \"2024-07-25T11:49:55.234+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/item",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/item",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:50:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Design\",\n            \"type\": \"Service\",\n            \"created_at\": \"2024-07-25T11:49:55+07:00\",\n            \"updated_at\": \"2024-07-25T11:49:55+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/item/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:50:34 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"item not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:50:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Design\",\n        \"type\": \"Service\",\n        \"created_at\": \"2024-07-25T11:49:55+07:00\",\n        \"updated_at\": \"2024-07-25T11:49:55+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Design X\",\n    \"type\": \"Service\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/item/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"\",\n    \"code\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:51:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"name\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The name is required\"\n        },\n        {\n            \"field\": \"type\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The type is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Design X\",\n    \"type\": \"Service\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:51:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Design X\",\n        \"type\": \"Service\",\n        \"created_at\": \"2024-07-25T11:49:55+07:00\",\n        \"updated_at\": \"2024-07-25T11:51:56.463+07:00\"\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Design X\",\n    \"type\": \"Service\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:52:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"item not found\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/item/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:53:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"item not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/item/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"item",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 04:54:17 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Cecep\",\n    \"status\": \"active\",\n    \"address\": \"Subang\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Cecep\",\n    \"status\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/customer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:28:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"status\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The status is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Cecep\",\n    \"status\": \"active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/customer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:29:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Cecep\",\n        \"status\": \"active\",\n        \"created_at\": \"2024-07-25T12:29:00.847+07:00\",\n        \"updated_at\": \"2024-07-25T12:29:00.847+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/customer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:29:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Cecep\",\n            \"status\": \"active\",\n            \"created_at\": \"2024-07-25T12:29:01+07:00\",\n            \"updated_at\": \"2024-07-25T12:29:01+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/customer/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:30:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"customer not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:31:01 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Cecep\",\n        \"status\": \"active\",\n        \"created_at\": \"2024-07-25T12:29:01+07:00\",\n        \"updated_at\": \"2024-07-25T12:29:01+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Joko\",\n    \"status\": \"disabled\",\n    \"address\": \"Bandung\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Joko\",\n    \"status\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:31:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"status\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The status is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Joko\",\n    \"status\": \"disabled\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:31:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"customer not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Joko\",\n    \"status\": \"disabled\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:31:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Joko\",\n        \"status\": \"disabled\",\n        \"created_at\": \"2024-07-25T12:29:01+07:00\",\n        \"updated_at\": \"2024-07-25T12:31:56.948+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/customer/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:32:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"customer not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/customer/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"customer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 05:32:19 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"Invoice goroutine\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2,\n    \"items\": [\n        {\n            \"item_id\": 1,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 3,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 4,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/invoice",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subject\": \"Invoice 1\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 1,\n    \"tax_id\": 2,\n    \"currency_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/invoice",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 12:48:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"customer_id\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"customer not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subject\": \"Invoice 1\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/invoice",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 12:57:18 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 9\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/invoice?id=&issue_date=&due_date&subject=&customer=&status&total_items=3&page=1&size=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "issue_date",
+									"value": ""
+								},
+								{
+									"key": "due_date",
+									"value": null
+								},
+								{
+									"key": "subject",
+									"value": ""
+								},
+								{
+									"key": "customer",
+									"value": ""
+								},
+								{
+									"key": "status",
+									"value": null
+								},
+								{
+									"key": "total_items",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/invoice?id=&issue_date=&due_date&subject&customer&status&page=1&size=3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": ""
+										},
+										{
+											"key": "issue_date",
+											"value": ""
+										},
+										{
+											"key": "due_date",
+											"value": null
+										},
+										{
+											"key": "subject",
+											"value": null
+										},
+										{
+											"key": "customer",
+											"value": null
+										},
+										{
+											"key": "status",
+											"value": null
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 14:48:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1095"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"subject\": \"Invoice 1\",\n            \"status\": \"paid\",\n            \"issue_date\": \"2024-07-25T00:00:00+07:00\",\n            \"due_date\": \"2024-07-28T00:00:00+07:00\",\n            \"user\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"email\": \"\",\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            },\n            \"tax\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"rate\": 0,\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"subject\": \"Invoice 1\",\n            \"status\": \"paid\",\n            \"issue_date\": \"2024-07-25T00:00:00+07:00\",\n            \"due_date\": \"2024-07-28T00:00:00+07:00\",\n            \"user\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"email\": \"\",\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            },\n            \"tax\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"rate\": 0,\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"subject\": \"Invoice 1\",\n            \"status\": \"paid\",\n            \"issue_date\": \"2024-07-25T00:00:00+07:00\",\n            \"due_date\": \"2024-07-28T00:00:00+07:00\",\n            \"user\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"email\": \"\",\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            },\n            \"tax\": {\n                \"id\": 0,\n                \"name\": \"\",\n                \"rate\": 0,\n                \"created_at\": \"0001-01-01T00:00:00Z\",\n                \"updated_at\": \"0001-01-01T00:00:00Z\"\n            }\n        }\n    ],\n    \"paging\": {\n        \"page\": 1,\n        \"size\": 3,\n        \"total_item\": 9,\n        \"total_page\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/invoice/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 09:15:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"invoice not found\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"Invoice goroutine UPDATE\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2,\n    \"items\": [\n        {\n            \"item_id\": 1,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 3,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 4,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/invoice/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subject\": \"Invoice goroutine UPDATE\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2,\n    \"items\": [\n        {\n            \"item_id\": 1,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 3,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 4,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 02:11:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"invoice not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "422",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subject\": \"\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2,\n    \"items\": [\n        {\n            \"item_id\": 1,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 3,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 4,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 02:13:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"subject\",\n            \"error_code\": \"REQUIRED\",\n            \"param\": \"\",\n            \"message\": \"The subject is required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subject\": \"Invoice goroutine UPDATE\",\n    \"status\": \"paid\",\n    \"issue_date\": \"2024-07-25\",\n    \"due_date\": \"2024-07-25\",\n    \"customer_id\": 2,\n    \"tax_id\": 1,\n    \"currency_id\": 2,\n    \"items\": [\n        {\n            \"item_id\": 1,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 3,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        },\n        {\n            \"item_id\": 4,\n            \"quantity\": 10,\n            \"unit_price\": 10000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 02:14:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/invoice/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 17:54:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": [\n        {\n            \"field\": \"general\",\n            \"error_code\": \"NOT_FOUND\",\n            \"param\": \"\",\n            \"message\": \"invoice not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/invoice/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"invoice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "17"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Jul 2024 17:54:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 01:34:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": 44,\n            \"name\": \"Cecep Aprilianto\",\n            \"email\": \"cecepaprilianto@gmail.com\",\n            \"created_at\": \"2024-08-15T08:04:52+07:00\",\n            \"updated_at\": \"2024-08-15T08:04:52+07:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"me"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 02:51:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": \"Unauthorized\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "welcome",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjZWNlcEBnbWFpbC5jb20iLCJpc3MiOiJwdC1lc2IiLCJleHAiOjE3MjE5MDEwNjZ9.fBZGiYE0PWah6mn4nVkCD_t3rB2ztCtkmXSRueVOeH0",
+			"type": "string"
+		}
+	]
+}
